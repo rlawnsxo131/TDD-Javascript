@@ -1,7 +1,7 @@
 const Hello = {
   message: 'Hello',
   greeting() {
-    return `${this.message} ${this.getName()}`;
+    return this.message + ' '  + this.getName();
   },
   getName(cb) {
     const req = new XMLHttpRequest();
@@ -15,6 +15,12 @@ const Hello = {
       }
       req.send(null);
 
-      return 'world';
+      return this.name || 'world';
+  },
+  print(el) {
+    if(!el instanceof jQuery) {
+      throw new Error('파라매터는 제이쿼리 객체이어야 합니다');
+    }
+    el.text(this.greeting());
   }
 };

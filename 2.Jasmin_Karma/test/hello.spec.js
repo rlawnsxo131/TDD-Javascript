@@ -40,6 +40,24 @@ describe('Hello 모듈의', ()=> {
       //스파이 함수가 실행될 때 어떤 인자로 실행되었는지 검사
       expect(callbackSpy).toHaveBeenCalledWith(response.responseText);
     });
-  })
-});
+  });
 
+  describe('print 함수는', () => {
+    let el;
+    beforeEach(()=> {
+      el = $('<h1></h1>');
+      $('body').append(el);
+    });
+
+    afterEach(() => el.remove());
+
+    it('파라미터로 돔 요소가 없으면 에러를 반환한다', () => {
+      expect(() => Hello.print()).toThrowError();
+    });
+    it('파라매터로 받은 돔에 인삿말을 출력한다', () => {
+      Hello.print(el);
+      const expectText = Hello.greeting();
+      expect(el).toHaveText(expectText);
+    });
+  });
+});
