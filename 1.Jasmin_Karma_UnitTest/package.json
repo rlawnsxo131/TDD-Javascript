@@ -17,5 +17,8 @@
     "karma-jasmine": "^2.0.1",
     "karma-jasmine-ajax": "^0.1.13",
     "karma-jasmine-jquery": "^0.1.1"
+  },
+  "dependencies": {
+    "cryptiles": "^4.1.3"
   }
 }
