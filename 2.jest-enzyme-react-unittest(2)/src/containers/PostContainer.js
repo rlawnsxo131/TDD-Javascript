@@ -15,10 +15,10 @@ class PostContainer extends Component {
   }
 
   render() {
-    const { title, body } = this.props;
+    const { title, body, loading, error } = this.props;
     const { loadData } = this;
     return (
-      <Post title={title} body={body} onLoad={loadData} />
+      <Post title={title} body={body} onLoad={loadData}  loading={loading} error={error} />
     );
   }
 }
@@ -26,7 +26,9 @@ class PostContainer extends Component {
 export default connect(
   (state) => ({
     title: state.post.title,
-    body: state.post.body
+    body: state.post.body,
+    loading: state.post.fetching,
+    error: state.post.error
   }),
   (dispatch) => ({
     PostActions: bindActionCreators(postActions, dispatch)
