@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Counter matches sanpshot 1`] = `
+<div>
+  <h1>
+    카운터
+  </h1>
+  <h2>
+    700
+  </h2>
+  <button
+    onClick={[MockFunction]}
+  >
+    +
+  </button>
+  <button
+    onClick={[MockFunction]}
+  >
+    -
+  </button>
+</div>
+`;
