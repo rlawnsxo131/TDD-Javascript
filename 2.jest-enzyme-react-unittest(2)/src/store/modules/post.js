@@ -1,9 +1,7 @@
 import { handleActions, createAction } from 'redux-actions';
 import axios from 'axios';
 
-function getPostAPI(postId) {
-  return axios.get(`http://jsonplaceholder.typicode.com/posts/${postId}`);
-}
+const getPostAPI = postId => axios.get(`http://jsonplaceholder.typicode.com/posts/${postId}`);
 
 const GET_POST_PENDING = 'post/GET_POST_PENDING';
 const GET_POST_SUCCESS = 'post/GET_POST_SUCCESS';
@@ -13,7 +11,7 @@ const getPostPending = createAction(GET_POST_PENDING);
 const getPostSuccess = createAction(GET_POST_SUCCESS);
 const getPostFailure = createAction(GET_POST_FAILURE);
 
-export const getPost = (postId) => async (dispatch) => {
+export const getPost = postId => async (dispatch) => {
   dispatch(getPostPending());
   try {
     const response = await getPostAPI(postId);
